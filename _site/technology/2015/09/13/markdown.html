@@ -11,7 +11,7 @@
          **
         -->
         <meta charset="utf-8">
-        <title>飞鸟集 - 詹昌文</title>
+        <title>GitHub Flavored Markdown新手指南 - 詹昌文</title>
         <!-- meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="generator" content="Jekyll" />
@@ -106,31 +106,143 @@
                 <div class="main">
                     
     <div class="article article-post">
-    <h2 class="title">飞鸟集</h2>
+    <h2 class="title">GitHub Flavored Markdown新手指南</h2>
     <div class="info">
         <span class="info-title"><i class="icon-calendar"></i> Published: </span>
-        <span class="info-date">10 May 2015</span>
+        <span class="info-date">13 Sep 2015</span>
         <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
-        <span class="info-link"><a href="/blog/navigations/categories.html#生活-ref" >生活</a></span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#-ref" ></a></span>
     </div>
-    <h1>第一首</h1>
+    <hr>
 
-<p>夏天的飞鸟，飞到我的窗前唱歌，又飞去了。</p>
+<p>GitHub的Markdown语法在标准的Markdown语法基础上做了扩充，称之为<code>GitHub Flavored Markdown</code>，简称<code>GFM</code>。GFM在GitHub上有广泛应用，issues和wiki均支持Markdown语法。GitHub对一般的<code>.md</code>格式文件的解析与本处GitHub个人主页中<code>.md</code>格式文件的解析是不太一样的。</p>
 
-<p>秋天的黄叶，它们没有什么可唱，只叹息一声，飞落在那里。</p>
+<hr>
 
-<h1>第二首</h1>
+<h2>1. 标题</h2>
 
-<p>世界对着它的爱人，把它浩翰的面具揭下了。</p>
+<p>Markdown支持两种风格的标题，Setext和atx，但不知什么原因，这里的一级标题总是和二级标题一样大小。</p>
 
-<p>它变小了，小如一首歌，小如一回永恒的接吻。　　　　</p>
+<h3>Setext-风格：一级标题下面一行使用等号符号=，二级标题下面使用连字符符号-，至少有一个=和-就能正常工作。</h3>
+
+<h1>一级标题</h1>
+
+<h2>二级标题</h2>
+
+<h3>Atx-风格：每行的开头使用1-6个井号字符，分别对应标题级别1-6。</h3>
+
+<h2>2. 列表</h2>
+
+<h3>无序列表</h3>
+
+<ul>
+<li>文本1</li>
+<li>文本1</li>
+<li>文本3</li>
+</ul>
+
+<h3>更多无序列表：用tab缩进实现</h3>
+
+<ul>
+<li>编程语言
+
+<ul>
+<li>脚本语言
+
+<ul>
+<li>Python</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>有序列表</h3>
+
+<ol>
+<li>文本1</li>
+<li>文本2</li>
+<li>文本3</li>
+</ol>
+
+<h2>3. 引用</h2>
+
+<blockquote>
+<p>一盏灯，一片昏黄；一简书，一杯淡茶。守着那一份淡定，品读属于自己的寂寞。保持淡定，才能欣赏到最美丽的风景！保持淡定，人生从此不再寂寞。</p>
+</blockquote>
+
+<h2>4. 强调</h2>
+
+<p>使用两个星号包围起来的文字，是<strong>粗体</strong>
+使用一个星号包围起来的文字，是<em>斜体</em>
+使用`<code>（Tab键上面那个点）包围起来的文字，会被高亮显示</code>高亮`
+使用两个波浪线包围的字，会加~~删除线~~，但不知什么原因此处删除线失效
+组合使用粗体、斜体：<strong><em>斜粗体1</em></strong>、<strong><em>斜粗体2</em></strong></p>
+
+<h2>5. 表格：这里表格的一些功能也无法正常工作</h2>
+
+<p>| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |</p>
+
+<p>dog | bird | cat
+----|------|----
+foo | foo  | foo
+bar | bar  | bar
+baz | baz  | baz</p>
+
+<table border="1">
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+
+<table border="1">
+<tr>
+<th>Heading</th>
+<th>Another Heading</th>
+</tr>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+
+<h2>6. 代码高亮</h2>
+
+<p>使用三个```加上语言名称，并以同样的标签结束。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">//Objective-C
+
+//PHP是最好的语言
+
+printf(&quot;HelloWorld!&quot;)
+</code></pre></div><div class="highlight"><pre><code class="language-Java" data-lang="Java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span><span class="n">args</span><span class="o">){}</span> <span class="c1">//Java</span>
+</code></pre></div><div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="c1">//C</span>
+</code></pre></div><div class="highlight"><pre><code class="language-Bash" data-lang="Bash"><span class="nb">echo</span> <span class="s2">&quot;hello GitHub&quot;</span><span class="c">#Bash</span>
+</code></pre></div><div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;myH1&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="o">=</span><span class="s2">&quot;Welcome to my Homepage&quot;</span><span class="p">;</span> <span class="c1">//javascipt</span>
+</code></pre></div><div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">string</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">A</span><span class="p">,</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">B</span><span class="p">)</span> <span class="c1">//cpp</span>
+</code></pre></div>
+<h2>7. 水平线</h2>
+
+<hr>
+
+<hr>
+
+<hr>
 
     <nav class="article-previous fn-clear">
         
-        <a class="prev" href="/blog//%E6%8A%80%E6%9C%AF/2014/09/20/java-concurrency.html" rel="bookmark">&laquo;&nbsp;Java 中的并发</a>
+        <a class="prev" href="/blog//technology/2015/09/03/markdown-tool.html" rel="bookmark">&laquo;&nbsp;Markdown工具</a>
         
-        
-        <a class="next" href="/blog//%E7%94%9F%E6%B4%BB/2015/07/03/HelloWorld.html" rel="bookmark">HelloWorld&nbsp;&raquo;</a>
         
     </nav>
     <div class="comment">
@@ -177,13 +289,15 @@
                         <h4 class="title">Recent Posts</h4>
                         <ul class="list">
                             
-                                <li><a href="/blog/jekyll/update/2015/09/03/auction.html" title="auction" rel="bookmark">auction</a></li>
+                                <li><a href="/blog/technology/2015/09/13/markdown.html" title="GitHub Flavored Markdown新手指南" rel="bookmark">GitHub Flavored Markdown新手指南</a></li>
                             
-                                <li><a href="/blog/%E7%94%9F%E6%B4%BB/2015/07/03/HelloWorld.html" title="HelloWorld" rel="bookmark">HelloWorld</a></li>
+                                <li><a href="/blog/technology/2015/09/03/markdown-tool.html" title="Markdown工具" rel="bookmark">Markdown工具</a></li>
                             
-                                <li><a href="/blog/%E7%94%9F%E6%B4%BB/2015/05/10/life.html" title="飞鸟集" rel="bookmark">飞鸟集</a></li>
+                                <li><a href="/blog/life/2015/05/10/life.html" title="飞鸟集" rel="bookmark">飞鸟集</a></li>
                             
-                                <li><a href="/blog/%E6%8A%80%E6%9C%AF/2014/09/20/java-concurrency.html" title="Java 中的并发" rel="bookmark">Java 中的并发</a></li>
+                                <li><a href="/blog/technology/2014/09/20/java-concurrency.html" title="Java 中的并发" rel="bookmark">Java 中的并发</a></li>
+                            
+                                <li><a href="/blog/jekyll/update/2013/09/03/java-initial.html" title="JAVA环境搭建" rel="bookmark">JAVA环境搭建</a></li>
                             
                         </ul>
                     </div>
