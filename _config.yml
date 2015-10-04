@@ -66,7 +66,7 @@ nav:
 #Author config
 author:
     name: zhanchangwen
-    email: xkzbeta@outlook.comment
+    email: zhanchangwen@live.com
     imageLink: http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652
     simpleIntro: 詹昌文
     detailIntro:
@@ -76,13 +76,13 @@ author:
 #Follow me, you can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
 follow:
   - class: icon-rss
-    url: /atom.xml
+    url: /feed.xml
   - class: icon-weibo
-    url: http://weibo.com
+    url: http://weibo.com/u/5093788277
   - class: icon-renren
-    url: http://renren.com
+    url: http://www.renren.com/288179795
   - class: icon-github-alt
-    url: http://github.com
+    url: https://github.com/zhanchangwen
   - class: icon-twitter
     url: http://twitter.com
   - class: icon-google-plus
