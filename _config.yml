@@ -46,9 +46,9 @@ timezone:      null
 title: Jekyll Theme
 description: Just another Jekyll theme design and code by zhanxin.info.
 keywords: Jekyll Theme
-url: /StrayBirds
-feed: /atom.xml
-favicon: http://jekyllrb.com/favicon.png
+url: /blog
+feed: /feed.xml
+favicon: http://tb.himg.baidu.com/sys/portrait/item/15cf7707?t=1422534652
 
 #Nav config
 nav:
@@ -110,7 +110,7 @@ customLinks:
 #comment config
 disqus:
   config: false
-  id: minixalpha
+  id: zhanchangwen
 
 
 #################################### global configure #######################################
@@ -120,8 +120,8 @@ baseurl: /blog
 markdown: redcarpet
 safe: false
 highlighter: pygments
-title: 飞鸟集
-description: 人生到处知何似，应似飞鸿踏雪泥
+title: 詹昌文
+description: 做最好的自己
 theme: kunka
 disqusname: zhanchangwen
 
