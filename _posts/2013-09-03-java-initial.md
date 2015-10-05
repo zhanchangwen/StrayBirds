@@ -2,12 +2,12 @@
 layout: post
 title:  JAVA环境搭建
 date:   2013-09-3 13:46:54
-categories: jekyll update
+categories: technology
 ---
 
 # 1.下载安装jdk #
 
-windows下jdk下载：
+windows下jdk下载：(点击直接下载或者右键复制链接地址)
 	
 [jdk1.7 32bit](http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-windows-i586.exe)
 
