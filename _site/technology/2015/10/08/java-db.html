@@ -11,7 +11,7 @@
          **
         -->
         <meta charset="utf-8">
-        <title>Archives - 詹昌文</title>
+        <title>JAVA数据库操作 - 詹昌文</title>
         <!-- meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="generator" content="Jekyll" />
@@ -104,54 +104,157 @@
         <div class="contain fn-clear">
             <div class="container fn-clear">
                 <div class="main">
-                    <div class="article">
-    <h3 class="title">Archives</h3>
-    
-    <ul class="article-year" data-year="2015">
+                    
+    <div class="article article-post">
+    <h2 class="title">JAVA数据库操作</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">08 Oct 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#-ref" ></a></span>
+    </div>
+    <h1>1.MySQL安装</h1>
+
+<p><a href="http://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.6.27.0.msi" title="MySQL-installer-5.6">MySQL-installer-5.6</a> for windows 32：</p>
+
+<h1>2.MySQL驱动</h1>
+
+<p>JAVA通过JDBC调用MySQL需要引用包：mysql-connector-java-5.1.36-bin.jar</p>
+
+<p>步骤：
+下载mysql-connector-java-gpl-5.1.36.msi并安装
+在安装目录下：mysql-connector-java-5.1.36-bin.jar
+BuildPath--&gt;Add External Archives--&gt;选择该包</p>
+
+<h1>3.连接数据库</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">package com.db;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+public class DBConnection {
+    Connection con = null;
+    public Connection getConnection(){
+        try {
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//加载驱动
+            String conurl = &quot;jdbc:mysql://127.0.0.1:3306/studentdb&quot;;
+            String username = &quot;root&quot;;
+            String password = &quot;1234&quot;;
+            con = DriverManager.getConnection(conurl,username,password);//创建数据库的连接
+            System.out.println(&quot;Connection success&quot;);
+        } catch (ClassNotFoundException | SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return con;
+    }
+    public void closeConnection(){
+        if(con != null){
+            try {
+                con.close();
+                System.out.println(&quot;close database success&quot;);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre></div>
+<h1>4.数据库表的创建</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">package com.db;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class CreateTable {
+    Connection con = null;
+    private Statement stmt = null;
+    public boolean crateBookDataTable(){
+        DBConnection onecon = new DBConnection();
+        con = onecon.getConnection();
+        boolean returnResult = true;
+        try {
+            stmt = con.createStatement();
+            //事先在数据库中新建名字为“studentdb”的数据库
+            String pSql = &quot;create table student(sno char(10),sname char(20),sage integer,smajor char(10))&quot;;
+            stmt.executeUpdate(pSql);
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            returnResult = false;
+        }
+        return returnResult;
+    }
+    public static void main(String[] args){
+        CreateTable c = new CreateTable();
+        if(c.crateBookDataTable()){
+            System.out.print(&quot;success&quot;);
+        }else{
+            System.out.print(&quot;fail&quot;);
+        }
+    }
+}
+</code></pre></div>
+<h1>5.添加数据信息</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">String rl = &quot;insert into student(sno,sname,sage,smajor) values(&#39;201400103&#39;,&#39;董华&#39;,19,&#39;cs&#39;)&quot;;
+//stmt Statement类
+stmt.executeUpdate(rl);
+</code></pre></div>
+<h1>6.删除数据信息</h1>
+<div class="highlight"><pre><code class="language-text" data-lang="text">String pSql = &quot;delete from student where sno=1&quot;;
+stmt.executeUpdate(pSql);
+</code></pre></div>
+<p>PrepareStatement方式：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">PreparedStatement pstmt = null;
+//con 对数据库的连接 Connection类
+//?留位，setXXX（）方式补位
+pstmt = con.preparedStatement(&quot;delete from student where sno=?&quot;);
+pstmt.setString(1,sno);
+//PreparedStatement方式，直接执行executeUpdate()方法，不传参数
+pstmt.executeUpdate();
+</code></pre></div>
+<h1>7.信息查询</h1>
+
+<p>PreparedStatement方式：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pstmt = con.preparedStatement(&quot;select * from student where sno=?&quot;);
+pstmt.setString(1,sno);
+rs = pstmt.executeQuery();//查询结果保存在ResultSet类型数据里
+</code></pre></div>
+<p>JAVA api:<a href="http://docs.oracle.com/javase/8/docs/api/" title="JAVA api 在线文档">http://docs.oracle.com/javase/8/docs/api/</a></p>
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/blog//technology/2015/10/05/myeclipse-keys.html" rel="bookmark">&laquo;&nbsp;MyEclipse常用快捷键</a>
+        
+        
+    </nav>
+    <div class="comment">
         
             
-            
-        <li class="fn-clear"><span>Oct 08</span><a href="/blog/technology/2015/10/08/java-db.html">JAVA数据库操作</a></li>
         
-            
-            
-        <li class="fn-clear"><span>Oct 05</span><a href="/blog/technology/2015/10/05/myeclipse-keys.html">MyEclipse常用快捷键</a></li>
-        
-            
-            
-        <li class="fn-clear"><span>Oct 05</span><a href="/blog/technology/2015/10/05/webgl-texture.html">WebGL纹理</a></li>
-        
-            
-            
-        <li class="fn-clear"><span>Oct 05</span><a href="/blog/technology/2015/10/05/stream-operate.html">流线LIC矢量操作纹理</a></li>
-        
-            
-            
-        <li class="fn-clear"><span>Sep 13</span><a href="/blog/technology/2015/09/13/markdown.html">GitHub Flavored Markdown新手指南</a></li>
-        
-            
-            
-        <li class="fn-clear"><span>Sep 03</span><a href="/blog/technology/2015/09/03/markdown-tool.html">Markdown工具</a></li>
-        
-            
-            
-                
-    </ul>
-    <ul class="article-year" data-year="2014">
-            
-        <li class="fn-clear"><span>Sep 20</span><a href="/blog/technology/2014/09/20/java-concurrency.html">Java 中的并发</a></li>
-        
-            
-            
-                
-    </ul>
-    <ul class="article-year" data-year="2013">
-            
-        <li class="fn-clear"><span>Sep 03</span><a href="/blog/technology/2013/09/03/java-initial.html">JAVA环境搭建</a></li>
-        
-    </ul>
+    </div>
 </div>
 
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'zhanchangwen'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
 
                     
                 </div>
