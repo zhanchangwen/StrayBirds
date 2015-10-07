@@ -17,6 +17,7 @@ windows下jdk下载：(点击直接下载或者右键复制链接地址)
 
 [jdk1.8 64bit](http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-windows-x64.exe)
 
+
 # 2.设置环境变量 #
 
 JAVA_HOME
