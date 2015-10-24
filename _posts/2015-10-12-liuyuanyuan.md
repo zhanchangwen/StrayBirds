@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  LG面试题
+title:  刘媛媛演讲 不抱怨、靠自己
 date:   2015-10-10 08:14:12  
 categories: motivation
 ---
-
-[http://www.dxsbb.com/news/3919.html](http://www.dxsbb.com/news/3919.html "北大才女刘媛媛4分44秒演讲，让整个世界都沉默：不抱怨、靠自己")
+[http://v.youku.com/v_show/id_XNzM5MjA3Mjgw.html](http://v.youku.com/v_show/id_XNzM5MjA3Mjgw.html)
 
 　　在这个演讲开始之前，我先问问现场的大家一个问题：
  
